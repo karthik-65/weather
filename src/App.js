@@ -2,6 +2,10 @@ import React, { useState, useEffect } from "react";
 import axios from "axios";
 import "./App.css";  // ✅ Import CSS
 import temperatureIcon from './assets/icons/Thermometer.png';
+import humidityIcon from './assets/icons/humidity.png';
+import windIcon from './assets/icons/wind.png';
+import earthIcon from './assets/icons/globe.png';
+import cloudIcon from './assets/icons/cloudy.png';
 
 
 const WeatherApp = () => {
@@ -73,18 +77,54 @@ const WeatherApp = () => {
                 {/* Display Weather */}
                 {weather ? (
                     <div className="weather-info">
-                        <h2>{weather.name} 🌍</h2>
+                        <h2>{weather.name}
+                            <img
+                                src={earthIcon}
+                                alt="Temperature"
+                                width="30"
+                                height="30"
+                                style={{ verticalAlign: 'middle',marginleft:'20px', marginRight: '8px' }}
+                            />
+                        </h2>
                         <p>
-                        <img
-                            src={temperatureIcon}
-                            alt="Temperature"
-                            width="24"
-                            height="24"
-                            style={{ verticalAlign: 'middle', marginRight: '8px' }}
-                        />
-                        Temperature: {weather.main.temp}°C
+                            <img
+                                src={temperatureIcon}
+                                alt="Temperature"
+                                width="24"
+                                height="24"
+                                style={{ verticalAlign: 'middle', marginRight: '8px' }}
+                            />
+                            Temperature: {weather.main.temp}°C
                         </p>
-                        <p>🌥️ Weather: {weather.weather[0].description}</p>
+                        <p>
+                            <img
+                                src={humidityIcon}
+                                alt="Temperature"
+                                width="24"
+                                height="24"
+                                style={{ verticalAlign: 'middle', marginRight: '8px' }}
+                            /> 
+                            Humidity: {weather.main.humidity}%
+                        </p>
+                        <p>
+                            <img
+                                src={windIcon}
+                                alt="Temperature"
+                                width="24"
+                                height="24"
+                                style={{ verticalAlign: 'middle', marginRight: '8px' }}
+                            />
+                            Wind Speed: {weather.wind.speed} m/s</p>
+                        <p>
+                            <img
+                                src={cloudIcon}
+                                alt="Temperature"
+                                width="24"
+                                height="24"
+                                style={{ verticalAlign: 'middle', marginRight: '8px' }}
+                            />
+                            Weather: {weather.weather[0].description}
+                        </p>
                     </div>
                 ) : (
                     <p>Loading...</p>
