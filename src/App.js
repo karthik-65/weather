@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import axios from "axios";
-import "./App.css";  // ✅ Import CSS
+import "./App.css";  // Import CSS
 import temperatureIcon from './assets/icons/Thermometer.png';
 import humidityIcon from './assets/icons/humidity.png';
 import windIcon from './assets/icons/wind.png';
 import earthIcon from './assets/icons/globe.png';
 import cloudIcon from './assets/icons/cloudy.png';
+import WeatherIcon from './assets/icons/sun.png';
 
 
 const WeatherApp = () => {
@@ -60,7 +61,15 @@ const WeatherApp = () => {
             </video>
 
             <div className="weather-container">
-                <h1>🌤️ Weather </h1>
+                <h1><img
+                      src={WeatherIcon}
+                      alt="Temperature"
+                      width="40"
+                      height="40"
+                      style={{ verticalAlign: 'middle', marginRight: '8px' }}
+                    />
+                     Weather 
+                </h1>
                 {error && <p className="error-message">{error}</p>}
 
                 {/* City Search Input */}

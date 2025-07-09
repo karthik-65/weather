@@ -23,12 +23,12 @@ app.get('/weather', async (req, res) => {
     }
 
     try {
-        console.log("Fetching weather from:", url);  // ✅ Log the request URL
+        console.log("Fetching weather from:", url); 
         const response = await axios.get(url);
-        console.log("Weather Data:", response.data); // ✅ Log the API response
+        console.log("Weather Data:", response.data);  
         res.json(response.data);
     } catch (error) {
-        console.error("API Error:", error.response?.data || error.message); // ✅ Log the error
+        console.error("API Error:", error.response?.data || error.message); 
         res.status(500).json({ error: "Failed to fetch weather data" });
     }
 });
